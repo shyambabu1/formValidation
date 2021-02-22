@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <h1>Details</h1>
+  <div>
+    <form [formGroup]=myForm (ngSubmit)="onSubmit()">
+      <!-- Username -->
+      <mat-form-field appearance="outline" class="col-10">
+        <mat-label>User Name</mat-label>
+        <input matInput class="form-control" placeholder="UserName" formControlName='userName' required>
+        <mat-hint>Min Length 8</mat-hint>
+        <mat-error *ngIf="myForm.controls.userName.invalid && 
+      (myForm.controls.userName.dirty || myForm.controls.userName.touched)">
+          <span *ngIf="userName?.errors?.required">User Name is required.</span>
+          <span *ngIf="userName?.errors?.minLength">User Name must be at least 8 characters long.</span>
+          <span *ngIf="userName?.errors?.pattern">Only Alphannumeric allowed</span>
+        </mat-error>
+      </mat-form-field>
+      <!-- First name -->
+      <mat-form-field appearance="outline" class="col-10">
+        <mat-label>First Name</mat-label>
+        <input matInput class="form-control" placeholder="FirstName" formControlName='firstName'>
+        <mat-hint>Enter your First name</mat-hint>
+        <mat-error *ngIf="myForm.controls.userName.invalid && 
+      (myForm.controls.userName.dirty || myForm.controls.userName.touched)">
+          <span *ngIf="userName?.errors?.required">First Name is required.</span>
+          <!-- <span *ngIf="userName?.errors?.minLength">User Name must be at least 8 characters long.</span> -->
+        </mat-error>
+      </mat-form-field>
+      <!-- Last name -->
+      <mat-form-field appearance="outline" class="col-10">
+        <mat-label>Last Name</mat-label>
+        <input matInput class="form-control" placeholder="UserName" formControlName='lastName'>
+        <!-- <mat-hint></mat-hint> -->
+        <mat-error *ngIf="myForm.controls.lastName.invalid && 
+      (myForm.controls.lastName.dirty || myForm.controls.lastName.touched)">
+          <span *ngIf="lastName?.errors?.required">Last Name is required.</span>
+          <!-- <span *ngIf="lastName?.errors?.minLength">User Name must be at least 8 characters long.</span> -->
+        </mat-error>
+      </mat-form-field>
+      <!-- email Id -->
+      <mat-form-field appearance="outline" class="col-10">
+        <mat-label>Email Address</mat-label>
+        <input matInput class="form-control" placeholder="emailAdd" formControlName='emailAdd'>
+        <!-- <mat-hint>Max Length 20. Min Length 5</mat-hint> -->
+        <mat-error *ngIf="myForm.controls.emailAdd.invalid && 
+      (myForm.controls.lastName.dirty || myForm.controls.lastName.touched)">
+          <span *ngIf="emailAdd?.errors?.required">Email Name is required.</span>
+          <span *ngIf="emailAdd?.errors?.email">Please enter valid email.</span>
+        </mat-error>
+      </mat-form-field>
+      <!-- PhoneNumber -->
+      <mat-form-field appearance="outline" class="col-10">
+        <mat-label>PhoneNumber</mat-label>
+        <span matPrefix>+91 &nbsp;</span>
+        <input matInput class="form-control" placeholder="phoneNumber" formControlName='phoneNumber'>
+        <mat-hint>Only Indian 10 digit PhoneNumber</mat-hint>
+        <mat-error *ngIf="myForm.controls.phoneNumber.invalid && 
+      (myForm.controls.lastName.dirty || myForm.controls.lastName.touched)">
+          <span *ngIf="phoneNumber?.errors?.required">PhoneNumber is required.</span>
+          <span *ngIf="phoneNumber?.errors?.minLength">PhoneNumber must be at 10 characters long.</span>
+          <span *ngIf="phoneNumber?.errors?.pattern">Ten digit Numeric is required</span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  <!-- <button type="submit">SUBMIT</button> -->
+  <button type="submit" [disabled]="!myForm.valid">SUBMIT</button>
+</div>  

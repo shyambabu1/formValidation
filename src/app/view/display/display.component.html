@@ -1,0 +1,21 @@
+<div>
+    <p> Listed below are the details</p>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of datalist">
+                <th scope="row">1</th>
+                <td>{{i.uname}}</td>
+                <td>{{i.fname}}&nbsp;{{i.lname}}</td>
+                <td>@{{i.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
